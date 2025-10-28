@@ -10,7 +10,7 @@ struct NODE
 	char string;  
 };   
 
-char initstr[100001];  
+char initstr[100000];  
 
 int main()  
 {  
