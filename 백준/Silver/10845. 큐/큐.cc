@@ -1,79 +1,82 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <bits/stdc++.h>
 using namespace std;
 
+int dat[10001];
+int head = 0;
+int tail = 0;
+
 int main()
 {
-	cin.tie(0);
-	ios_base::sync_with_stdio(NULL);
-	queue<int> Q;
-
+	
 	int num;
-	cin >> num;
+	scanf("%d", &num);
 
-	string str;
+	char str[10];
 
 	while (num--)
 	{
 
-		cin >> str;
+		scanf("%s", str);
 
-		if (str == "push")
+		if (strcmp(str, "push") == 0)
 		{
 			int num1;
-			cin >> num1;
-			Q.push(num1);
+			scanf("%d", &num1);
+			dat[tail++] = num1;
 		}
-		else if (str == "pop")
+		else if (strcmp(str, "pop") == 0)
 		{
-			if (Q.empty() != 1)
+			if (head == tail)
 			{
-				cout << Q.front() << '\n';
-				Q.pop();
+				printf("-1\n");
+			}
+			if (tail > head)
+			{
+				printf("%d\n", dat[head]);
+				head++;
+			}
+		}
+		else if (strcmp(str, "size") == 0)
+		{
+			printf("%d\n", (tail - head));
+		}
+		else if (strcmp(str, "empty") == 0)
+		{
+			if (head == tail)
+			{
+				printf("1\n");
 			}
 			else
 			{
-				cout << -1 << '\n';
+				printf("0\n");
 			}
 		}
-		else if (str == "size")
+		else if (strcmp(str, "front") == 0)
 		{
-			cout << Q.size() << '\n';
-		}
-		else if (str == "empty")
-		{
-			if (Q.empty() != 1)
+			if (head == tail)
 			{
-				cout << 0 << '\n';
+				printf("-1\n");
 			}
 			else
 			{
-				cout << 1 << '\n';
+				printf("%d\n", dat[head]);
 			}
 		}
-		else if (str == "front")
+		else if (strcmp(str, "back") == 0)
 		{
-			if (Q.empty() != 1)
+			if (head == tail)
 			{
-				cout << Q.front() << '\n';
+				printf("-1\n");
 			}
 			else
 			{
-				cout << -1 << '\n';
-			}
-		}
-		else if (str == "back")
-		{
-			if (Q.empty() != 1)
-			{
-				cout << Q.back() << '\n';
-			}
-			else
-			{
-				cout << -1 << '\n';
+				printf("%d\n", dat[tail - 1]);
 			}
 		}
 
 	}
 
 	return 0;
+
 }
