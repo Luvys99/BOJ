@@ -4,10 +4,9 @@ using namespace std;
 int main()
 {
 	string str;
-	string appendstr = "??!";
 	cin >> str;
 
-	str += appendstr;
+	str.append("??!");
 
 	cout << str;
 	
