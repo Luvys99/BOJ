@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define LEN_INPUT 10
+#define LEN_INPUT 11
 
 int main(void) {
     char s1[LEN_INPUT];
